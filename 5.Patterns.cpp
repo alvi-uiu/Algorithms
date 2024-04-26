@@ -511,8 +511,5 @@ int32_t main()
         pattern21(n);
     }
 
-
-    is_sor
-
     return 0;
 }
