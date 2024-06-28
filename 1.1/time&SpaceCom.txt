@@ -1,0 +1,7 @@
+Time complexiety != time taken to run the code ;
+
+Time complexiety = rate of which time increases with respect to input size ;
+
+
+Space complexity generally represents the summation of auxiliary space and the input space. Auxiliary space refers to the space that we use additionally to solve a problem.
+And input space refers to the space that we use to store the inputs.
