@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/perfect-number/description/
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -9,7 +10,7 @@ bool checkPerfectNumber(int num)
         if (num % i == 0)
         {
             divisors.push_back(i);
-            if (i != num / i && i != 1)
+            if (i != num / i && i != 1) // to avoid number itself as a divisor
                 divisors.push_back(num / i);
         }
     }

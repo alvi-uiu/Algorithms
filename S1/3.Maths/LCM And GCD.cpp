@@ -1,3 +1,4 @@
+// https://www.geeksforgeeks.org/problems/lcm-and-gcd4516/1
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long int;
@@ -18,7 +19,12 @@ vector<long long> lcmAndGcd(long long A, long long B)
     vector<ll> ans = {LCM, GCD};
     return ans;
 }
+
+// T(n): 0(min(A,B))
+
 /*----------------------------------------------------------------------*/
+
+// Optimal :
 
 vector<long long> lcmAndGcd(long long A, long long B)
 {
@@ -42,6 +48,8 @@ vector<long long> lcmAndGcd(long long A, long long B)
     vector<ll> res = {lcm, gcd};
     return res;
 }
+
+// T(n)=0(log(min(A,B)))
 
 int main()
 {

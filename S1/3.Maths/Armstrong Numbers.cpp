@@ -10,7 +10,13 @@ string armstrongNumber(int n)
     {
         int ldgt = n % 10;
         sum += ldgt * ldgt * ldgt;
+        n /= 10;
     }
+
+    if (sum == org)
+        return "true";
+    else
+        return "false";
 }
 
 int main()
