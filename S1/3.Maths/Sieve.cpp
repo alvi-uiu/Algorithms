@@ -1,26 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<bool> sieve(int limit)
+vector<int> getSieve(int n)
 {
-    vector<bool> isPrime(limit + 1, true);
-    isPrime[0] = isPrime[1] = false;
-    for (int i = 2; i * i <= limit; ++i)
+
+    vector<int> prime(n + 1, 1);
+
+    prime[0] = prime[1] = 0;
+
+    for (int i = 2; i * i <= n; ++i)
     {
-        if (isPrime[i])
+
+        if (prime[i] == 1)
         {
-            for (int j = i * i; j <= limit; j += i)
+
+            for (int j = i * i; j <= n; j += i)
             {
-                isPrime[j] = false;
+                prime[j] = 0;
             }
         }
     }
-    return isPrime;
+
+    return prime;
 }
 
 int main()
 {
-    vector<bool> Prime = sieve(1e7);
+    vector<int> Prime = getSieve(1e7);
 
     for (int i = 0; i < 999999; i++)
     {

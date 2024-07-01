@@ -21,14 +21,18 @@ vector<ll> ans(vector<vector<ll>> queries)
     vector<ll> ans;
     for (int i = 0; i < n; i++)
     {
-        ll left = queries[i][0];
-        ll right = queries[i][1];
-        ll cnt = 0;
 
-        for (int j = left; j <= right; j++)
+        ll cnt = 0;
+        for (int i = 2; i <= queries.size(); i++)
         {
-            if (isPrime(j))
-                cnt++;
+            ll left = queries[i][0];
+            ll right = queries[i][1];
+
+            for (int j = left; j <= right; j++)
+            {
+                if (isPrime(j))
+                    cnt++;
+            }
         }
 
         ans.push_back(cnt);
@@ -67,10 +71,10 @@ vector<int> getSieve(int n)
 
 vector<ll> ans2(vector<vector<ll>> queries)
 {
-    ll n = queries.size();
+
     vector<ll> ans;
     vector<int> Prime = getSieve(1e6);
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < queries.size(); i++)
     {
         ll left = queries[i][0];
         ll right = queries[i][1];
