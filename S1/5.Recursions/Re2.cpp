@@ -6,8 +6,7 @@ void fun(int i, int n)
     if (i > n)
         return;
     cout << "SORRY" << endl;
-    i++;
-    fun(i, n);
+    fun(i + 1, n);
 }
 
 // print 1 to n :
@@ -16,8 +15,7 @@ void fun2(int i, int n)
     if (i > n)
         return;
     cout << i << " ";
-    i++;
-    fun2(i, n);
+    fun2(i + 1, n);
 }
 
 // print reverse :
@@ -26,9 +24,7 @@ void fun3(int i, int n)
 {
     if (i > n)
         return;
-    i++; // i=i+1
-    fun3(i, n);
-    i--;
+    fun3(i + 1, n);
     cout << i << " ";
 }
 
@@ -40,15 +36,32 @@ void fun3i(int n)
     fun3i(n - 1); // (n--) != (n-1)
 }
 
-// reverse & backtracK:
+// backtracK:
+// rev :
+void fun4(int i, int n)
+{
+    if (i > n)
+        return;
+    // cout << n << " ";
+    fun4(i + 1, n);
+    cout << i << endl;
+}
 
-void fun3ii(int n)
+void fun4i(int n)
 {
     if (n < 1)
         return;
     cout << n << " ";
-    fun3ii(n - 1);
-    cout << n << endl;
+    fun4i(n - 1);
+}
+
+// 1 to n :
+void fun5(int i, int n)
+{
+    if (i < 1)
+        return;
+    fun5(i - 1, n);
+    cout << i << " ";
 }
 
 int main()
@@ -71,8 +84,19 @@ int main()
 
     /*----------------------------------------------------------------------*/
 
+    // int n;
+    // cin >> n;
+    // fun4(1, 7);
+
+    /*----------------------------------------------------------------------*/
+    // int n;
+    // cin >> n;
+    // fun5(7, 7);
+
+    /*----------------------------------------------------------------------*/
     int n;
     cin >> n;
-    fun3ii(7);
+    fun4i(7);
+
     return 0;
 }
