@@ -52,7 +52,6 @@ void fun2(int idx, vector<int> A, vector<int> &arr)
 int main()
 {
     vector<int> A = {7, 4, 9};
-    int n = 3;
     vector<int> arr;
     arr.clear();
     fun2(0, A, arr);
