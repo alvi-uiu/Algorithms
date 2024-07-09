@@ -33,7 +33,7 @@ void fun(int idx, vector<int> A, vector<int> arr, int k)
 }
 // T(n): 0(2^n)*n
 
-void fun2(int idx, const vector<int> &A, vector<int> &arr, int sum, int k)
+void fun2(int idx, vector<int> &A, vector<int> &arr, int sum, int k)
 {
     if (idx >= A.size())
     {
@@ -112,6 +112,31 @@ void fun2i(int idx, vector<int> A, vector<int> &arr, int sum, int k)
     fun2i(idx + 1, A, arr, sum, k);
 }
 
+/*----------------------------------------------------------------------*/
+// cnt number of sub-seq :
+int fun4(int idx, vector<int> A, int sum, int k)
+{
+    if (idx >= A.size())
+    {
+        if (sum == k)
+        {
+            return 1;
+        }
+        else
+            return 0;
+    }
+
+    // take :
+
+    sum += A[idx];
+    int left = fun4(idx + 1, A, sum, k);
+    sum -= A[idx];
+
+    // not-take :
+    int right = fun4(idx + 1, A, sum, k);
+    return left + right;
+}
+
 int main()
 {
     // vector<int> A = {7, 16, 9, 77, 99, 8, -1};
@@ -125,8 +150,11 @@ int main()
     // fun2(0, A, arr, 0, 16);
 
     /*----------------------------------------------------------------------*/
+    // vector<int> A = {7, 16, 9, 77, 99, 8, -1};
+    // vector<int> arr;
+    // fun3(0, A, arr, 0, 16);
+    /*----------------------------------------------------------------------*/
     vector<int> A = {7, 16, 9, 77, 99, 8, -1};
-    vector<int> arr;
-    fun2i(0, A, arr, 0, 16);
+    cout << fun4(0, A, 0, 16);
     return 0;
 }
